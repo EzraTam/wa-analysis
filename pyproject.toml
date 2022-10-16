@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "wa-analysis"
+version = "0.1.0"
+description = ""
+authors = ["Ezra Tampubolon <ezra.tampubolon@googlemail.com>"]
+readme = "README.md"
+packages = [{include = "wa_analysis"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+regex = "^2022.9.13"
+pandas = "^1.5.0"
+emoji = "^2.1.0"
+wordcloud = "^1.8.2.2"
+seaborn = "^0.12.0"
+textblob = "^0.17.1"
+emosent-py = "^0.1.6"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.16.0"
+pylint = "^2.15.4"
+black = "^22.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
