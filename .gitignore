@@ -2,5 +2,4 @@
 .vscode/settings.json
 data/_chat.txt
 notebooks
-
 *.pyc
