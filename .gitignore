@@ -1,6 +1,6 @@
 .DS_Store
 .vscode/settings.json
-data
+data/_chat.txt
 notebooks
 
 *.pyc
