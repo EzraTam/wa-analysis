@@ -164,4 +164,3 @@ def clean_capture_text_df(
     return TextCleaningDF(
         df_input=df_input, col_txt=col_txt, in_parallel=in_parallel
     ).clean_capture_text_df()
-    
