@@ -28,13 +28,15 @@ class TextCleaning:
         return self.text.lower()
 
     @staticmethod
-    def _re_sub_replace(text: str, pattern: str, replacement_str: str,flags,capture:bool) -> dict[str, list[str]]:
+    def _re_sub_replace(
+        text: str, pattern: str, replacement_str: str, flags, capture: bool
+    ) -> dict[str, list[str]]:
         """Service for pattern replacement"""
-        re_compiled=re.compile(pattern,flags=flags)
+        re_compiled = re.compile(pattern, flags=flags)
         if capture:
-            matches=re_compiled.findall(text)    
+            matches = re_compiled.findall(text)
         else:
-            matches=[]
+            matches = []
         return dict(text=re_compiled.sub(replacement_str, text), matches=matches)
 
     def convert_in_text(self, text_object: str):
@@ -45,8 +47,8 @@ class TextCleaning:
             text_object in pm.processing_by_re_meta.keys()  # pylint: disable=C0201
         ), "Conversion for the chosen object has not yet been implemented"
 
-        _temp_input=pm.processing_by_re_meta[text_object]
-        _temp_input["text"]=self.text
+        _temp_input = pm.processing_by_re_meta[text_object]
+        _temp_input["text"] = self.text
 
         return self._re_sub_replace(**_temp_input)["text"]
 
@@ -72,8 +74,8 @@ class TextCleaning:
         assert (
             text_object in pm.processing_by_re_meta.keys()  # pylint: disable=C0201
         ), "Conversion for the chosen object has not yet been implemented"
-        _temp_input=pm.processing_by_re_meta[text_object]
-        _temp_input["text"]=self.text
+        _temp_input = pm.processing_by_re_meta[text_object]
+        _temp_input["text"] = self.text
         _result = self._re_sub_replace(**_temp_input)
         return {"text": _result["text"], text_object: _result["matches"]}
 
